@@ -1,0 +1,14 @@
+.navbar 
+{
+    background-color: black;
+}
+.navbar .navbar-brand
+{
+    color:#E50914;
+    font-size: bold;
+}
+
+.navbar .nav-item .nav-link
+{
+    color:#E50914;
+}
