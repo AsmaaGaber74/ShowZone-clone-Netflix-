@@ -1,6 +1,7 @@
 .navbar 
 {
     background-color: black;
+  
 }
 .navbar .navbar-brand
 {
@@ -10,5 +11,12 @@
 
 .navbar .nav-item .nav-link
 {
+    color:#ffffff;
+    font-size:medium;
+}
+.navbar .nav-item .nav-link:hover
+{
     color:#E50914;
+    font-size: 18px;
+  
 }

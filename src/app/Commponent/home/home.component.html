@@ -1,3 +1,64 @@
-<app-navbar></app-navbar>
 
-<h1>home work</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap" rel="stylesheet">
+ 
+
+<app-navbar></app-navbar>
+<!---slider-->
+  <div class="container-fluid">
+
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+          
+          <div class="carousel-inner">
+              <div class="carousel-item " data-bs-interval="10000" *ngFor="let slid of sliders;let i=index"
+                [ngClass]="{active:i===1}">
+                <img src="https://image.tmdb.org/t/p/original/{{ slid.backdrop_path }}" class="d-block w-100 " style="height: 750px;" alt="...">
+                <div class="carousel-caption contains">
+                  <h2 style="color:#E50914;">{{slid.original_title}}</h2>
+                  <h5 class="titled" [class.expanded]="slid.isExpanded" (click)="toggleExpand(slid)">{{slid.overview}}</h5>
+                
+                </div>
+              </div>
+            </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+
+      
+  </div>
+<!--end-slider-->
+
+
+<!-- data for all category-->
+  <div class="allmovies mt-3 p-4">
+
+    <!--tranding-->
+      <div class="row">
+        <h4 style="margin-bottom: 8px;">Trending Movies</h4>
+
+        <div class="imagecontainer">
+          <ng-container   *ngFor="let trand of trinding;let i=index" >        
+             <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" class="allimage  allimage2" alt="...">
+          </ng-container>
+         
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    <!--end tranding-->
+
+  </div>
+<!--end data for all category--->
+

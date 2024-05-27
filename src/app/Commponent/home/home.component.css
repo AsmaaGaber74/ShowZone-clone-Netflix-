@@ -1,4 +1,102 @@
-*{
+
+* {
     margin: 0px;
     padding: 0px;
+    font-size: 25px;
+  }
+  /* ----------------slider--*/
+  .contains 
+  {
+    background: linear-gradient(rgba(15, 23, 43, 0.95), rgba(15, 23, 43, 0.3));
+    font-family: "Edu TAS Beginner", cursive;
+  }
+
+  .titled {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 1;
+    box-orient: vertical;
+    transition: -webkit-line-clamp 0.5s;
+    transition: line-clamp 0.5s;
+    cursor: pointer;
+  }
+
+  .expanded 
+  {
+    -webkit-line-clamp: unset !important;
+    max-height: none;
+  }
+
+  .carousel-inner
+ {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-item 
+  {
+    position: absolute;
+    width: 100%;
+    transition: opacity 0.0s ease-in-out;
+    opacity: 1;
+  }
+
+  .carousel-item.active 
+  {
+    position: relative;
+    opacity: 1;
+    transition: opacity 0.0s ease-in-out;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-inner {
+      height: 700px;
+      font-size: 5px;
+    }
+
+    .carousel-inner .carousel-item img {
+      height: 700px;
+      font-size: 5px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .carousel-inner {
+      height: 700px;
+      font-size: 5px;
+    }
+
+    .carousel-inner .carousel-item img {
+      height: 700px;
+      font-size: 5px;
+    }
+  }
+ /* -------------tranding */
+.imagecontainer
+{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+   
+}
+.allimage
+{
+    max-height: 350px;
+    object-fit: contain;
+    transition: transform 100ms;
+    margin-right: 9px;
+    width: 100%;
+    box-sizing: content-box;
+
+}
+.allimage:hover
+{
+    transform:scale(1.08) ;
+}
+
+.imagecontainer::-webkit-scrollbar
+{
+   display: none;
 }
