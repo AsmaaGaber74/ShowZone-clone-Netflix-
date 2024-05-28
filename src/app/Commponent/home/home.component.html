@@ -41,14 +41,23 @@
 
     <!--tranding-->
       <div class="row">
-        <h4 style="margin-bottom: 8px;">Trending Movies</h4>
+        <h4 style="margin-bottom: 8px;"  [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+          Trending Movies</h4>
 
         <div class="imagecontainer">
-          <ng-container   *ngFor="let trand of trinding;let i=index" >        
-             <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" class="allimage  allimage2" alt="...">
+          <ng-container   *ngFor="let trand of trinding;let i=index" >  
+            
+             <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" 
+              class="allimage  allimage2" alt="..." 
+           
+              
+              > 
+              <button    routerLink="{{ 'details/' + trand.id }}"> details</button>
+          
           </ng-container>
          
         </div>
+     
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>

@@ -1,2 +1,88 @@
+
 <app-navbar></app-navbar>
-<p>movidetails works!</p>
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="https://image.tmdb.org/t/p/original/{{ details?.poster_path }}" alt="{{ details?.original_title }}" class="img-fluid" *ngIf="details?.poster_path">
+      </div>
+      <div class="col-md-6">
+       
+        <h2>{{ details?.original_title }}</h2>
+      
+        <p>{{ details?.overview }}</p>
+   
+        <p>Release Date: {{ details?.release_date }}</p>
+        
+        <p>Runtime: {{ details?.runtime }} minutes</p>
+   
+        <p>Rating: {{ details?.vote_average }}/10</p>
+       
+      </div>
+    </div>
+  </div> -->
+  <!--new-->
+  
+  <!-- moviedetails -->
+<section class="light">
+	<div class="container py-2">
+		<div class="h1 text-center text-dark" id="pageHeaderTitle">My Cards Light</div>
+
+		<article class="postcard light yellow">
+			<a class="postcard__img_link">
+                <img class="postcard__img" src="https://image.tmdb.org/t/p/original/{{ details?.poster_path }}" alt="{{ details?.original_title }}"  *ngIf="details?.poster_path">
+			</a>
+			<div class="postcard__text t-dark">
+				<h1 class="postcard__title yellow"><a >{{ details?.original_title }}</a></h1>
+				<div class="postcard__subtitle small">
+					<p style="color: black;">Rating: {{ details?.vote_average }}</p>
+				</div>
+				<div class="postcard__bar"></div>
+				<div class="postcard__preview-txt" >
+                   <h5>
+                    {{ details?.overview }}
+                   </h5> 
+                </div>
+				<ul class="postcard__tagbox">
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-clock mr-2"></i>{{ details?.runtime }}.minutes</li>
+					<li class="tag__item play yellow">
+						<a href="https://www.themoviedb.org/video/play?key={{videoDetails}}" 
+                        target="_blank"><i class="fas fa-play mr-2"></i>Play Trailer</a>
+                        
+					</li>
+				</ul>
+			</div>
+		</article>
+	</div>
+</section>
+
+<!-- movie cast -->
+
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">Movie Cast</h5>
+        <div class="row">
+            <!-- cast member -->
+            <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let c of cast" style="height: 200px; margin-top: 20px;">
+                <div class="image-flip" >
+                    <div class="mainflip flip-0">
+                        <div class="frontside">
+                            <div class="card" >
+                                <div class="card-body text-center">
+                                    <p><img class=" img-fluid" 
+                                        src="https://image.tmdb.org/t/p/original/{{ c.profile_path}}"  alt="card image"></p>
+                                    <h4 class="card-title">{{c.original_name}}</h4>
+                                    <p  style="color:#ffa710;" class="card-text">{{c.character}} </p>
+                                   
+                               
+                                </div>
+                            </div><hr style="color: blue;">
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

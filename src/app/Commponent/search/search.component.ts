@@ -1,32 +1,50 @@
 import { MoviesService } from '../../../Service/movies.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-
+import { NavbarComponent } from '../navbar/navbar.component';
+import { BackgroundService } from '../../../Service/background.service';
+import { Subscription } from 'rxjs';
 @Component({
     selector: 'app-search',
     standalone: true,
-    imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule],
+    imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent],
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit 
+export class SearchComponent implements OnInit ,OnDestroy 
 {
     searchQuery: string = "";
     resultdata: any[] = [];
     pagedResultdata: any[] = [];
     currentPage: number = 1;
-    itemsPerPage: number = 4;
-    isExpanded: boolean = false;
+    itemsPerPage: number = 8;
+    backgroundColor: string = 'white';
+    backgroundColorSubscription: Subscription | undefined;
 
+    isExpanded: boolean = false;
     toggleExpand(movie: any) {
       movie.isExpanded = !movie.isExpanded;
     }
-    constructor(private _moviesService: MoviesService) { }
+    constructor(private _moviesService: MoviesService,private backgroundService: BackgroundService) { }
 
-    ngOnInit(): void { }
-
+    ngOnInit(): void 
+    {
+      //  this.backgroundColor = this.backgroundService.getBackgroundColor();
+         // this.backgroundColorSubscription ="asmaa"
+          this.backgroundColorSubscription = this.backgroundService.backgroundColorChanged.subscribe(color => {
+          this.backgroundColor = color;
+          console.log('Background color:', this.backgroundColor);  
+        });
+      }
+    
+      ngOnDestroy(): void {
+        // if (this.backgroundColorSubscription) {
+        //   this.backgroundColorSubscription.unsubscribe();
+        // }
+      }
+      
     searchMovies()
      {
         if (this.searchQuery.trim() !== '') 
@@ -85,3 +103,5 @@ export class SearchComponent implements OnInit
    
   
 }
+
+

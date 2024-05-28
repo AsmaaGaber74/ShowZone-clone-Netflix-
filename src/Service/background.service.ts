@@ -1,36 +1,20 @@
-// import { Injectable } from '@angular/core';
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class BackgroundService {
-
-//   constructor() { }
-//   private isDarkMode = true;
-
-//   setDarkMode(isDark: boolean) {
-//     this.isDarkMode = isDark;
-//     document.body.style.backgroundColor = isDark ? 'black' : 'white';
-//   }
-
-//   getDarkMode(): boolean {
-//     return this.isDarkMode;
-//   }
-
-// }
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackgroundService {
   private readonly STORAGE_KEY = 'background_color';
+  backgroundColorChanged: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {}
 
   setDarkMode(isDark: boolean) 
     {
+      const color = isDark ? 'black' : 'white';
       localStorage.setItem(this.STORAGE_KEY, isDark ? 'black' : 'white');
+      this.backgroundColorChanged.emit(color);
     }
 
   getDarkMode(): boolean 
@@ -38,6 +22,7 @@ export class BackgroundService {
       const storedColor = localStorage.getItem(this.STORAGE_KEY);
       return storedColor === 'black';
     }
+    
 
   initializeBackground()
    {
@@ -45,11 +30,13 @@ export class BackgroundService {
       if (storedColor) 
         {
           document.body.style.backgroundColor = storedColor;
+          this.backgroundColorChanged.emit(storedColor);
         }
-      // if(storedColor=='black')
-      //   {
-      //     document.body.style.color = 'white';
-      //   }
-        
+      
     }
+    // getBackgroundColor(): string 
+    // {
+    //   return localStorage.getItem(this.STORAGE_KEY) || 'black';
+    // }
+  
 }

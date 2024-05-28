@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { MoviesService } from '../../../Service/movies.service';
 import { CommonModule } from '@angular/common';
 import { BackgroundService } from '../../../Service/background.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent,CommonModule],
+  imports: [NavbarComponent,CommonModule,RouterModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -15,6 +16,8 @@ export class HomeComponent implements OnInit
 {
   sliders :any[]=[];
   trinding:any[]=[];
+  backgroundColor: string = 'white';
+  backgroundColorSubscription: Subscription | undefined;
 
 
   isExpanded: boolean = false;
@@ -22,11 +25,15 @@ export class HomeComponent implements OnInit
 toggleExpand(movie: any) {
   movie.isExpanded = !movie.isExpanded;
 }
-  constructor(private  _moviesService :MoviesService,private backgroundService: BackgroundService){ }
+  constructor(private  _moviesService :MoviesService,private backgroundService: BackgroundService,private router:Router){ }
 
 
   ngOnInit(): void 
   {
+    this.backgroundColorSubscription = this.backgroundService.backgroundColorChanged.subscribe(color => {
+      this.backgroundColor = color;
+      console.log('Background color:', this.backgroundColor);  
+    });
     this.backgroundService.initializeBackground();
     this.slidarshow();
     this. Trindingmovies();
@@ -55,4 +62,5 @@ toggleExpand(movie: any) {
 
      })
  }
+
 }

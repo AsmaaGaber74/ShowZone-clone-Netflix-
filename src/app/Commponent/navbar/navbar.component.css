@@ -1,7 +1,8 @@
 .navbar 
 {
     background-color: black;
-  
+     margin-bottom:20px ;
+     display: block;
 }
 .navbar .navbar-brand
 {
