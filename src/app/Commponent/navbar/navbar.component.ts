@@ -1,21 +1,67 @@
+// import { CommonModule } from '@angular/common';
+// import { Component, OnInit } from '@angular/core';
+// import { FormsModule } from '@angular/forms';
+// import { BackgroundService } from '../../../Service/background.service';
+// import { ActivatedRoute, Router } from '@angular/router';
+// import { RouterModule } from '@angular/router';
+// import { LogoutService } from '../../../Service/logout.service';
+
+// @Component({
+//   selector: 'app-navbar',
+//   standalone: true,
+//   imports: [FormsModule,CommonModule ,RouterModule],
+//   templateUrl: './navbar.component.html',
+//   styleUrl: './navbar.component.css'
+// })
+// export class NavbarComponent implements OnInit 
+// {
+//    name=JSON.parse(sessionStorage.getItem("loggedInUser")!).name;
+//   constructor(public backgroundService: BackgroundService, private sinoughtservise:LogoutService) {}
+
+//   ngOnInit() {
+//     this.backgroundService.initializeBackground();
+    
+//   }
+  
+//   Background() {
+//     const isDarkMode = this.backgroundService.getDarkMode();
+//     this.backgroundService.setDarkMode(!isDarkMode);
+//     document.body.style.backgroundColor = !isDarkMode ? 'black' : 'white';
+//   }
+
+//   signoutt()
+//     {
+//       sessionStorage.removeItem("loggedInUser");
+//       this.sinoughtservise.signout();
+//     }
+// }
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BackgroundService } from '../../../Service/background.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
+import { LogoutService } from '../../../Service/logout.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [FormsModule,CommonModule ,RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  constructor(public backgroundService: BackgroundService) {}
+ 
+  name = JSON.parse(sessionStorage.getItem("loginuser")!).name;
+  pic = JSON.parse(sessionStorage.getItem("loginuser")!).picture;
+  constructor(
+    public backgroundService: BackgroundService,
+    private signoutService: LogoutService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    
     this.backgroundService.initializeBackground();
   }
 
@@ -24,20 +70,10 @@ export class NavbarComponent implements OnInit {
     this.backgroundService.setDarkMode(!isDarkMode);
     document.body.style.backgroundColor = !isDarkMode ? 'black' : 'white';
   }
+
+  signoutt() {
+    sessionStorage.removeItem("loginuser");
+    this.signoutService.signout();
+    //this.router.navigate(['/login']);
+  }
 }
-  // isDarkMode = true;
-  
-  // Background() {
-  //   const body = document.body;
-  //   this.isDarkMode = !this.isDarkMode;
-  //   body.style.backgroundColor = this.isDarkMode ? 'black' : 'white';
-  //   if( body.style.backgroundColor =='black')
-  //       {
-  //         body.style.color='white'
-  //       }
-  //     else
-  //       {
-  //         body.style.color='black'
-  //       }
-  // }
-//}

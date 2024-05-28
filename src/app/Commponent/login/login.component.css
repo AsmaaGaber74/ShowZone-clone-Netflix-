@@ -1,0 +1,15 @@
+.up
+{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.up .log
+{
+    font-size: 30px;
+    padding: 10px;
+    margin: 10px;
+    color: black;
+}

@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light fixed-top">   <!-- bg-dark -->
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/">Show<span style="color:#ffa710">Time</span></a>
+      <a class="navbar-brand" routerLink="/">ShowZone</a>
       <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"  style="color: white;"></span>
       </button>
@@ -18,7 +18,16 @@
           <li class="nav-item">
             <a class="nav-link"  routerLink="/search">Search</a>
           </li>
-          
+         
+          <li class="nav-item">
+            <a class="nav-link"  style="cursor: pointer;"  >Welcom: <span style="color: red;">{{name}}</span> </a> 
+          </li> 
+          <li class="pic">
+            <img [src]="pic">
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  style="cursor: pointer;"  (click)="signoutt()"> | LogOut</a> 
+          </li>
         </ul>
         
       </div>
