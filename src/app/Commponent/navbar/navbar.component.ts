@@ -35,6 +35,7 @@
 //       this.sinoughtservise.signout();
 //     }
 // }
+
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -64,6 +65,14 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     
     this.backgroundService.initializeBackground();
+    this.loadUserInfo();
+  }
+  loadUserInfo() {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginuser")!);
+    if (loginUser) {
+      this.name = loginUser.name;
+      this.pic = loginUser.picture || 'default_picture_url'; 
+    }
   }
 
   Background() {
@@ -75,6 +84,5 @@ export class NavbarComponent implements OnInit {
   signoutt() {
     sessionStorage.removeItem("loginuser");
     this.signoutService.signout();
-    //this.router.navigate(['/login']);
   }
 }

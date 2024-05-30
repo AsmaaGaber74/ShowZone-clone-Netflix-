@@ -48,12 +48,17 @@
           <ng-container   *ngFor="let trand of trinding;let i=index" >  
             
              <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" 
-              class="allimage  allimage2" alt="..." 
-           
-              
-              > 
+              class="allimage  allimage2" alt="..." > 
               <button    routerLink="{{ 'details/' + trand.id }}"> details</button>
-          
+              
+              <button (click)="toggleFavorite(trand)">
+                <span *ngIf="isFavorite(trand.id)">
+                  <a class="nav-link active" aria-current="page" routerLink="/fav"> ❤️</a>
+                </span>
+                <span *ngIf="!isFavorite(trand.id)">🤍</span>
+              </button>
+            
+              
           </ng-container>
          
         </div>

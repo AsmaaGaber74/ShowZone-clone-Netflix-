@@ -12,6 +12,7 @@ export class LogoutService {
   signout()
     {
       google.accounts.id.disableAutoSelect();
-      this.router.navigate(['/login'])
+      this.router.navigate(['/login']);
+      
     }
 }

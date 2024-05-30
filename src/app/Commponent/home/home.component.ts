@@ -5,6 +5,7 @@ import { MoviesService } from '../../../Service/movies.service';
 import { CommonModule } from '@angular/common';
 import { BackgroundService } from '../../../Service/background.service';
 import { Subscription } from 'rxjs';
+import { FavoriteService } from '../../../Service/favorite.service';
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -18,14 +19,16 @@ export class HomeComponent implements OnInit
   trinding:any[]=[];
   backgroundColor: string = 'white';
   backgroundColorSubscription: Subscription | undefined;
-
-
   isExpanded: boolean = false;
 
-toggleExpand(movie: any) {
+
+  movies: any[] = [];
+
+toggleExpand(movie: any)
+{
   movie.isExpanded = !movie.isExpanded;
 }
-  constructor(private  _moviesService :MoviesService,private backgroundService: BackgroundService,private router:Router){ }
+  constructor(private favoriteService: FavoriteService,private  _moviesService :MoviesService,private backgroundService: BackgroundService,private router:Router){ }
 
 
   ngOnInit(): void 
@@ -62,5 +65,18 @@ toggleExpand(movie: any) {
 
      })
  }
+ 
+ toggleFavorite(movie: any): void 
+ {
+  if (this.favoriteService.isFavorite(movie.id)) {
+    this.favoriteService.removeFavorite(movie.id);
+  } else {
+    this.favoriteService.addFavorite(movie);
+  }
+}
 
+isFavorite(movieId: number): boolean 
+{
+  return this.favoriteService.isFavorite(movieId);
+}
 }

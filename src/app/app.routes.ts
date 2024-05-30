@@ -6,6 +6,7 @@ import { MovidetailsComponent } from './Commponent/movidetails/movidetails.compo
 import { SearchComponent } from './Commponent/search/search.component';
 import { LoginComponent } from './Commponent/login/login.component';
 import { SignupComponent } from './Commponent/signup/signup.component';
+import { FavoriteComponent } from './Commponent/favoritmovie/favoritmovie.component';
 
 export const routes: Routes = [
     {
@@ -19,6 +20,6 @@ export const routes: Routes = [
     { path: 'search', component: SearchComponent },
     { path: 'login', component: LoginComponent },
     { path: 'singup', component: SignupComponent },
-    
+    { path: 'fav', component: FavoriteComponent },
     { path: '**', component: NotFoundComponent }
 ];

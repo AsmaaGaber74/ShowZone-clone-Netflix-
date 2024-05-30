@@ -13,3 +13,73 @@
     margin: 10px;
     color: black;
 }
+.parent {
+    position: relative;
+   
+  }
+  
+  .child {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    right: 0;
+    z-index: 10; 
+    margin: auto; 
+    padding: 12px;
+    /* background: linear-gradient(rgba(28, 28, 28, 0.95), rgba(23, 23, 24, 0.3));
+    background: linear-gradient(rgba(41, 41, 41, 0.95), rgba(23, 23, 24, 0.9));  */
+    background:rgba(34, 34, 35, 0.9);
+    color: white;
+    border-radius: 8px;
+    width: 100%; 
+    max-width: 27%; 
+    margin-top: 7rem;
+    padding: 10px;
+  }
+  .top
+  {
+    width: 100%;
+    /* background: linear-gradient(rgba(41, 41, 41, 0.95), rgba(23, 23, 24, 0.9));  */
+    color: white;
+    background:rgba(34, 34, 35, 0.9);
+  }
+  
+
+/* Media queries for small screens */
+@media (max-width: 600px) {
+   
+    .child {
+        position: absolute; 
+        width: 90%; 
+        margin: 20px auto; 
+        padding: 20px; 
+        background: rgba(0, 0, 0, 0.9); 
+        z-index: 10; 
+    }
+    
+    .child .form-group label {
+        font-size: 1em; 
+    }
+    
+    .child .form-group input {
+        font-size: 1em; 
+    }
+    
+    .child .registerbtn {
+        font-size: 1em; 
+        padding: 10px; 
+    }
+    
+    .child p {
+        font-size: 0.9em; 
+    }
+    
+    .child .container.up {
+        margin-top: 10px;
+    }
+    
+    .child .alert {
+        font-size: 0.9em; 
+    }
+}
+

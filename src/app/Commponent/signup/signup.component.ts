@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
 
   signupusers: any[] = [];
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router,private formBuilder: FormBuilder) {
     this.signupForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(8), Validators.pattern('^[a-zA-Z]+$')]],
       email: ['', [Validators.required, Validators.email, this.emailValidator.bind(this)]],
@@ -45,7 +45,15 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+
+    // this.signupForm = this.formBuilder.group({
+    //   username: ['', [Validators.required, Validators.minLength(8), Validators.pattern('[a-zA-Z]+')]],
+    //   password: ['', [Validators.required]],
+    //   email: ['', [Validators.required, Validators.email]]
+    // });
+
     const storedUsers = localStorage.getItem('signupusers');
     if (storedUsers) {
       this.signupusers = JSON.parse(storedUsers);
@@ -84,5 +92,7 @@ export class SignupComponent implements OnInit {
       this.signupForm.reset();
       this.router.navigate(['/login']);
     }
+    //this.signupForm.reset();
   }
+  
 }
