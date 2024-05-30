@@ -1,0 +1,82 @@
+<!-- 
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+     
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Create Account</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="register()">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
+            </div>
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password:</label>
+              <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
+            </div>
+            <div *ngIf="errorMessage" class="alert alert-danger" [innerHTML]="errorMessage"></div>
+            <button type="submit" class="btn btn-success btn-block registerbtn">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="text-center">Create Account</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input type="text" class="form-control" id="username" formControlName="username" required>
+              <div *ngIf="signupForm.get('username')!.touched && signupForm.get('username')!.invalid" class="text-danger">
+                <div *ngIf="signupForm.get('username')!.errors?.['required']">Username is required.</div>
+                <div *ngIf="signupForm.get('username')!.errors?.['minlength']">Username must be at least 8 characters long.</div>
+                <div *ngIf="signupForm.get('username')!.errors?.['pattern']">Username must contain only letters.</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" formControlName="password" required>
+              <div *ngIf="signupForm.get('password')!.touched && signupForm.get('password')!.invalid" class="text-danger">
+                <div *ngIf="signupForm.get('password')!.errors?.['required']">Password is required.</div>
+                <div *ngIf="signupForm.get('password')!.errors?.['strongPassword']">Password must be strong (include uppercase, lowercase, number, and special character).</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" formControlName="email" required>
+              <div *ngIf="signupForm.get('email')!.touched && signupForm.get('email')!.invalid" class="text-danger">
+                <div *ngIf="signupForm.get('email')!.errors?.['required']">Email is required.</div>
+                <div *ngIf="signupForm.get('email')!.errors?.['email']">Email must be in the form example .com.</div>
+                <div *ngIf="signupForm.get('email')!.errors?.['emailTaken']">This email is already registered.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success btn-block registerbtn" [disabled]="signupForm.invalid">Signup</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

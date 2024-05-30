@@ -53,6 +53,7 @@ import { LogoutService } from '../../../Service/logout.service';
 export class NavbarComponent implements OnInit {
  
   name = JSON.parse(sessionStorage.getItem("loginuser")!).name;
+  
   pic = JSON.parse(sessionStorage.getItem("loginuser")!).picture;
   constructor(
     public backgroundService: BackgroundService,
