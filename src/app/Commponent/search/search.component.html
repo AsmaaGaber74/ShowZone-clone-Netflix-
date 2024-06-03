@@ -125,7 +125,7 @@
                     <img routerLink="/details/{{ movie.id }}" src=".." [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Photo of sunset">
                     <h4 class="card-title text-right"><i class="material-icons" >{{ movie.title }}</i></h4> 
                     <h5 class="card-title mt-3 mb-3" style="color: white;" [class.expanded]="movie.isExpanded" (click)="toggleExpand(movie)">{{ movie.overview }}</h5>
-                    <p class="card-text">{{movie.vote_average}}</p> 
+                    <p class="card-text">Rating: {{movie.vote_average}} </p> 
                 </div>               
              </div>          
          </div>

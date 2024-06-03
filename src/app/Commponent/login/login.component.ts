@@ -111,36 +111,13 @@ export class LoginComponent implements OnInit {
         theme: 'filled_blue',
         size: 'large',
         shape: 'rectangle',
-        width: 350
+        width: 320
       });
   }
 
   private decodeToken(token: string) {
     return JSON.parse(atob(token.split(".")[1]));
   }
-
-  // handleLogin(response: any) {
-  //   if (response) {
-  //     const payload = this.decodeToken(response.credential);
-  //     sessionStorage.setItem("loginuser", JSON.stringify(payload));
-  //     this.ngZone.run(() => {
-  //       this.router.navigate(['/']);
-  //     });
-  //   }
-  // }
-
-  // login(): void {
-  //   const isUserExist = this.signupusers.find(m => m.username === this.loginobject.username && m.password === this.loginobject.password);
-  //   if (isUserExist !== undefined) {
-   
-  //     this.errorMessage = ''; 
-  //     this.router.navigate(['/']);
-  //   } else {
-    
-  //     this.errorMessage = 'Username or password is incorrect';
-  //   }
-  // }
-
 
   login(): void {
     const isUserExist = this.signupusers.find(m => m.username === this.loginobject.username && m.password === this.loginobject.password);

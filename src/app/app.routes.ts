@@ -7,6 +7,7 @@ import { SearchComponent } from './Commponent/search/search.component';
 import { LoginComponent } from './Commponent/login/login.component';
 import { SignupComponent } from './Commponent/signup/signup.component';
 import { FavoriteComponent } from './Commponent/favoritmovie/favoritmovie.component';
+import { PaymentComponent } from './Commponent/payment/payment.component';
 
 export const routes: Routes = [
     {
@@ -21,5 +22,6 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'singup', component: SignupComponent },
     { path: 'fav', component: FavoriteComponent },
+    { path: 'payment', component: PaymentComponent },
     { path: '**', component: NotFoundComponent }
 ];

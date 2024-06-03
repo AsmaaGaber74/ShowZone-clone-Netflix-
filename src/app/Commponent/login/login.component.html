@@ -1,36 +1,41 @@
 <div class="parent relative">
-  <img width="100%" src="https://images.frandroid.com/wp-content/uploads/2022/10/netflix-octobre-contenus-2022.jpg">
-</div>
-<div class="child absolute top-30 left-0 w-full md:w-3/12  my-36 mx-auto text-white rounded-lg bg-opacity-80">
+    <img width="100%" src="https://images.frandroid.com/wp-content/uploads/2022/10/netflix-octobre-contenus-2022.jpg">
 
-            <form>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" [(ngModel)]="loginobject.username" name="username" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" [(ngModel)]="loginobject.password" name="password" required>
-              </div>
-              <button type="button" (click)="login()" class="btn btn-success btn-block registerbtn">Login</button>
-            
-            </form>
-            <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
-            <!-- <googale login> -->
-            <div class="container up">
-              <div id="google-btn"></div>
-            </div>
-            <p>
-              <a class="nav-link active" aria-current="page" routerLink="/singup">Dont have N account?
-                <span style="color: brown;"> Signup</span>
-              </a>
-            </p>
-               
-          </div>
-         
+    <div class="child absolute top-30 left-0 w-full md:w-3/12  my-36 mx-auto text-white rounded-lg bg-opacity-80">
+
+                <form>
+                  <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" [(ngModel)]="loginobject.username" name="username" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" [(ngModel)]="loginobject.password" name="password" required>
+                  </div>
+                  <button type="button" (click)="login()" class="btn btn-success btn-block registerbtn">Login</button>
+                
+                </form>
+                <div *ngIf="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+              
+                <div class="container up">
+                  <div id="google-btn"></div>
+                </div>
+                <p>
+                  <a class="nav-link active" aria-current="page" routerLink="/singup">New to ShowZone?
+                    <span style="color: brown;"> Sign Up Now</span>
+                  </a>
+                </p>
+                  
+    </div>
+</div>
+          
+
+          
 <!--   
   https://images.frandroid.com/wp-content/uploads/2022/10/netflix-octobre-contenus-2022.jpg
 -->
 <!--   
   https://www.universitymagazine.ca/wp-content/uploads/2021/08/How-to-Get-Netflix-For-Free.jpg
 -->
+<!-- <button type="button" (click)="login()" class="btn btn-success btn-block registerbtn">Login</button>
+             -->

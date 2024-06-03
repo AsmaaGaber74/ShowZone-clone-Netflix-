@@ -6,10 +6,11 @@ import { CommonModule } from '@angular/common';
 import { BackgroundService } from '../../../Service/background.service';
 import { Subscription } from 'rxjs';
 import { FavoriteService } from '../../../Service/favorite.service';
+import { LoginComponent } from '../login/login.component';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent,CommonModule,RouterModule],
+  imports: [NavbarComponent,CommonModule,RouterModule,LoginComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -28,7 +29,11 @@ toggleExpand(movie: any)
 {
   movie.isExpanded = !movie.isExpanded;
 }
-  constructor(private favoriteService: FavoriteService,private  _moviesService :MoviesService,private backgroundService: BackgroundService,private router:Router){ }
+  constructor(
+    private favoriteService: FavoriteService,
+    private  _moviesService :MoviesService,
+    private backgroundService: BackgroundService,
+    private router:Router){ }
 
 
   ngOnInit(): void 
@@ -36,10 +41,10 @@ toggleExpand(movie: any)
     this.backgroundColorSubscription = this.backgroundService.backgroundColorChanged.subscribe(color => {
       this.backgroundColor = color;
       console.log('Background color:', this.backgroundColor);  
-    });
-    this.backgroundService.initializeBackground();
-    this.slidarshow();
-    this. Trindingmovies();
+      });
+      this.backgroundService.initializeBackground();
+      this.slidarshow();
+      this. Trindingmovies();
   }
 //--------slider
  slidarshow()
@@ -66,7 +71,7 @@ toggleExpand(movie: any)
      })
  }
  
- toggleFavorite(movie: any): void 
+ Favorite(movie: any): void 
  {
   if (this.favoriteService.isFavorite(movie.id)) {
     this.favoriteService.removeFavorite(movie.id);
@@ -79,4 +84,5 @@ isFavorite(movieId: number): boolean
 {
   return this.favoriteService.isFavorite(movieId);
 }
+
 }

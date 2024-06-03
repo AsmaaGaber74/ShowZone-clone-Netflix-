@@ -1,9 +1,31 @@
-<p>favoritmovie works!</p>
-<div *ngIf="favorites.length === 0">
-  No favorite movies added.
-</div>
-<div *ngFor="let movie of favorites">
-  <p>{{ movie.title }}</p>
-  <p>{{ movie.overview }}</p>
-  <button (click)="removeFavorite(movie.id)">Remove from Favorites</button>
+
+<app-navbar></app-navbar>
+<!--data result-->
+    <div class="containertop">
+        
+        <h2>Here are your fav movies</h2>
+        <h3 
+            class="watch" 
+            [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}" 
+            style="transform: translateY(-100%);">
+            Watch Now
+        </h3>
+        <div class="search-container"    [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}" *ngIf="favorites.length === 0">
+            <h1>ther is No fav movies</h1>
+     </div>
+     </div>
+
+<div class="container-fluid mt-2" *ngIf="favorites.length != 0">
+  <div class="row">
+    <div class="col-md-3 col-sm-6 mb-10 " *ngFor="let movie of favorites">
+        <div class="card card-block">                  
+            <img routerLink="/details/{{ movie.id }}" src=".." [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Photo of sunset">
+            <h4 class="card-title text-right"><i class="material-icons" >{{ movie.title }}</i></h4> 
+            <h5 class="card-title mt-3 mb-3" style="color: white;" [class.expanded]="movie.isExpanded" (click)="toggleExpand(movie)">{{ movie.overview }}</h5>
+            <p class="card-text">Rating: {{movie.vote_average}}</p> <button (click)="removeFavorite(movie.id)">Remove from Favorites</button>   
+        </div>        
+            
+     </div>  
+             
+ </div>
 </div>

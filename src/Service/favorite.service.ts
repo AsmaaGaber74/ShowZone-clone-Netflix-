@@ -4,25 +4,57 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class FavoriteService {
-  private favorites: any[] = [];
+  private storageKeyPrefix = 'favorites_';
 
-  constructor() { }
+  constructor() {}
 
+  saveFavorite(movie: any): void {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginuser")!);
+    if (loginUser) {
+      const favoritesKey = this.storageKeyPrefix + loginUser.username;
+      let favorites = this.loadFavorites();
+      favorites.push(movie);
+      localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+    }
+  }
+  
+  loadFavorites(): any[] {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginuser")!);
+    if (loginUser) {
+      const favoritesKey = this.storageKeyPrefix + loginUser.username;
+      return JSON.parse(localStorage.getItem(favoritesKey)!) || [];
+    }
+    return [];
+  }
+  
   addFavorite(movie: any): void {
     if (!this.isFavorite(movie.id)) {
-      this.favorites.push(movie);
+      this.saveFavorite(movie);
     }
   }
 
   removeFavorite(movieId: number): void {
-    this.favorites = this.favorites.filter(movie => movie.id !== movieId);
+    const loginUser = JSON.parse(sessionStorage.getItem("loginuser")!);
+    if (loginUser) {
+      const favoritesKey = this.storageKeyPrefix + loginUser.username;
+      let favorites = this.loadFavorites().filter((movie: any) => movie.id !== movieId);
+      localStorage.setItem(favoritesKey, JSON.stringify(favorites));
+    }
+  }
+
+  clearFavorites(): void {
+    const loginUser = JSON.parse(sessionStorage.getItem("loginuser")!);
+    if (loginUser) {
+      const favoritesKey = this.storageKeyPrefix + loginUser.username;
+      localStorage.removeItem(favoritesKey);
+    }
   }
 
   getFavorites(): any[] {
-    return this.favorites;
+    return this.loadFavorites();
   }
 
   isFavorite(movieId: number): boolean {
-    return this.favorites.some(movie => movie.id === movieId);
+    return this.loadFavorites().some((movie: any) => movie.id === movieId);
   }
 }

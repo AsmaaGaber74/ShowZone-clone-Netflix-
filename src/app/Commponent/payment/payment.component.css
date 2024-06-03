@@ -1,0 +1,29 @@
+.container
+{ display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+    text-align: center;
+    
+}
+.container .pay
+{
+    width: 50vw;
+}
+@media (max-width: 768px) 
+{
+    .container .pay
+  {
+    text-align: center; 
+  }
+  .container .pay {
+    margin-bottom: 10px;
+    width: 100%; 
+  }
+
+  .container .pay 
+  {
+    display: block; 
+    margin: 0 auto; 
+  }
+}
