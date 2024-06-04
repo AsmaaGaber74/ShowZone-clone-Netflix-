@@ -37,41 +37,138 @@
 
 
 <!-- data for all category-->
-  <div class="allmovies mt-3 p-4">
+  <div class="allmovies mt-3 p-4" [dir]="'dir' | translate">
 
-    <!--tranding-->
-      <div class="row">
-        <h4 style="margin-bottom: 8px;"  [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
-          Trending Movies</h4>
-
-        <div class="imagecontainer">
-          <ng-container   *ngFor="let trand of trinding;let i=index" >  
-            
-             <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" 
-              class="allimage  allimage2" alt="..." > 
-              <button    routerLink="{{ 'details/' + trand.id }}"> details</button>             
+ <!--tranding-->
+  <div class="row pp">
+    <h4 style="margin-bottom: 8px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+      Trending Movies
+    </h4>
+  
+    <div class="imagecontainer">
+      <ng-container *ngFor="let trand of trinding; let i = index">
+        <div class="image-wrapper">
+          <img src="https://image.tmdb.org/t/p/original/{{ trand.poster_path }}" 
+               class="allimage allimage2" alt="...">
+          <div class="social">
+            <button  routerLink="{{ 'details/' + trand.id }}">details</button>
              <button (click)="Favorite(trand)">
-            <span *ngIf="isFavorite(trand.id)">
-              <a routerLink="" class="nav-link active" aria-current="page" > ❤️</a>
-            </span>
-            <span *ngIf="!isFavorite(trand.id)">🤍</span>
+                <span *ngIf="isFavorite(trand.id)">
+                  <a routerLink="" class="nav-link active" aria-current="page" > ❤</a>
+                </span>
+                <span *ngIf="!isFavorite(trand.id)">🤍</span>
           </button>
-            
-              
-          </ng-container>
-         
+          </div>
         </div>
-     
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    <!--end tranding-->
-
+      </ng-container>
+    </div>
   </div>
-<!--end data for all category--->
 
+  <!-- animation -->
+<div class="row pp">
+  <h4 style="margin-bottom: 8px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+    Animations Movies
+  </h4>
+
+  <div class="imagecontainer">
+    <ng-container *ngFor="let animation of animations; let i = index">
+      <div class="image-wrapper">
+        <img src="https://image.tmdb.org/t/p/original/{{ animation.poster_path }}" 
+             class="allimage allimage2" alt="...">
+        <div class="social">
+          <button  routerLink="{{ 'details/' + animation.id }}">details</button>
+           <button (click)="Favorite(animation)">
+              <span *ngIf="isFavorite(animation.id)">
+                <a routerLink="" class="nav-link active" aria-current="page" > ❤</a>
+              </span>
+              <span *ngIf="!isFavorite(animation.id)">🤍</span>
+        </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- action -->
+<div class="row pp">
+  <h4 style="margin-bottom: 8px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+    Actions Movies
+  </h4>
+
+  <div class="imagecontainer">
+    <ng-container *ngFor="let action of actions; let i = index">
+      <div class="image-wrapper">
+        <img src="https://image.tmdb.org/t/p/original/{{ action.poster_path }}" 
+             class="allimage allimage2" alt="...">
+        <div class="social">
+          <button  routerLink="{{ 'details/' + action.id }}">details</button>
+           <button (click)="Favorite(action)">
+              <span *ngIf="isFavorite(action.id)">
+                <a routerLink="" class="nav-link active" aria-current="page" > ❤</a>
+              </span>
+              <span *ngIf="!isFavorite(action.id)">🤍</span>
+        </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- adventures -->
+<div class="row pp">
+  <h4 style="margin-bottom: 8px;margin-top: 10px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+    <!-- {{'header.home'|translate}} -->
+    Adventures Movies
+  </h4>
+
+  <div class="imagecontainer">
+    <ng-container *ngFor="let adv of adventures; let i = index">
+      <div class="image-wrapper">
+        <img src="https://image.tmdb.org/t/p/original/{{ adv.poster_path }}" 
+             class="allimage allimage2" alt="...">
+        <div class="social">
+          <button  routerLink="{{ 'details/' + adv.id }}">details</button>
+           <button (click)="Favorite(adv)">
+              <span *ngIf="isFavorite(adv.id)">
+                <a routerLink="" class="nav-link active" aria-current="page" > ❤</a>
+              </span>
+              <span *ngIf="!isFavorite(adv.id)">🤍</span>
+        </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+<!-- comedy -->
+<div class="row pp">
+  <h4 style="margin-bottom: 8px;margin-top: 10px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+    <!-- {{'header.home'|translate}} -->
+    comedy Movies
+  </h4>
+
+  <div class="imagecontainer">
+    <ng-container *ngFor="let com of comedy; let i = index">
+      <div class="image-wrapper">
+        <img src="https://image.tmdb.org/t/p/original/{{ com.poster_path }}" 
+             class="allimage allimage2" alt="...">
+        <div class="social">
+          <button  routerLink="{{ 'details/' + com.id }}">details</button>
+           <button (click)="Favorite(com)">
+              <span *ngIf="isFavorite(com.id)">
+                <a routerLink="" class="nav-link active" aria-current="page" > ❤</a>
+              </span>
+              <span *ngIf="!isFavorite(com.id)">🤍</span>
+        </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+
+</div>
+<hr style="color: rgb(232, 8, 8);">
+  <!--end data for all category--->
+  <app-footer></app-footer>

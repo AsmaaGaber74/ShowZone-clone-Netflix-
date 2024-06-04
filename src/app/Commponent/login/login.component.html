@@ -1,3 +1,73 @@
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light fixed-top" >  
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">ShowZone</a>
+    <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
+      <span class="navbar-toggler-icon"  style="color: white;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/search">Search</a>
+        </li>
+        <li class="nav-item">
+          <div class="Flagdiv dropdown">
+              <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ lang | translate }}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <li style="color: azure;">
+                      <a class="dropdown-item" (click)="changelanguage('en')">English</a>
+                  </li>
+                  <li>
+                      <a class="dropdown-item" (click)="changelanguage('ar')">Arabic</a>
+                  </li>
+              </ul>
+          </div>
+        </li>
+      </ul>
+      
+    </div>
+  </div>
+</nav> -->
+<!-- 22222 -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" [dir]="'dir' | translate">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">ShowZone</a>
+    <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color: white;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" >
+      <ul class="navbar-nav ms-auto">
+
+      
+        <li class="nav-item dropdown" style="background-color: aliceblue;" (click)="toggleDropdown()">
+          <div class="Flagdiv">
+            <a class="nav-link dropdown-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+              Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="languageDropdown"  [class.show]="isDropdownOpen">
+              <a class="dropdown-item" (click)="changelanguage('en')">English</a>
+              <a class="dropdown-item" (click)="changelanguage('ar')">Arabic</a>
+            </div>
+          </div>
+        </li>
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/search">Search {{'header.home'|translate}}</a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
 <div class="parent relative">
     <img width="100%" src="https://images.frandroid.com/wp-content/uploads/2022/10/netflix-octobre-contenus-2022.jpg">
 
@@ -21,8 +91,8 @@
                   <div id="google-btn"></div>
                 </div>
                 <p>
-                  <a class="nav-link active" aria-current="page" routerLink="/singup">New to ShowZone?
-                    <span style="color: brown;"> Sign Up Now</span>
+                  <a class="nav-link active" aria-current="page" routerLink="/payment">New to ShowZone?
+                    <span style="color: brown;"> create your account Now</span>
                   </a>
                 </p>
                   

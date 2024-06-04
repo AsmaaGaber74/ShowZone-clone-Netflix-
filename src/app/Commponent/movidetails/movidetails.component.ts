@@ -5,11 +5,12 @@ import { MoviesService } from '../../../Service/movies.service';
 import { BackgroundService } from '../../../Service/background.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-movidetails',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent],
+  imports: [CommonModule, FormsModule, FooterComponent,RouterModule,ReactiveFormsModule,NavbarComponent],
   templateUrl: './movidetails.component.html',
   styleUrl: './movidetails.component.css'
 })

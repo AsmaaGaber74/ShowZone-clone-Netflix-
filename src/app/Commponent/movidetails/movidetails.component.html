@@ -44,7 +44,7 @@
                    </h5> 
                 </div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
+					<li class="tag__item"><i class="fas fa-tag mr-2"></i>release: {{ details?.release_date}}                     </li>
 					<li class="tag__item"><i class="fas fa-clock mr-2"></i>{{ details?.runtime }}.minutes</li>
 					<li class="tag__item play yellow">
 						<a href="https://www.themoviedb.org/video/play?key={{videoDetails}}" 
@@ -85,3 +85,4 @@
         </div>
     </div>
 </section>
+<app-footer></app-footer>

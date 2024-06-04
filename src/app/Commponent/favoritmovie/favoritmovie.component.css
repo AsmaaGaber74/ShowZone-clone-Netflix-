@@ -237,3 +237,27 @@ div [class^="col-"]{
   -webkit-line-clamp: unset !important;
  
 }
+.card {
+  position: relative;
+  padding: 15px;
+}
+.xfav
+{
+  background-color: red;
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  position: relative;
+  left: 300px;
+  cursor: pointer;
+  text-align: center;
+}
+.remove-icon {
+  position: absolute;
+  top: 8px; 
+  right: 9px;
+  cursor: pointer;
+  color: rgb(255, 255, 255); 
+}

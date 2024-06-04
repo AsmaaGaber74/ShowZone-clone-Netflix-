@@ -1,0 +1,103 @@
+
+.footer,
+.footer a {
+  color: #999;
+  font-size: 0.9rem;
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.footer p {
+  margin-bottom: 1.5rem;
+}
+
+.footer .footer-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.footer li {
+  line-height: 1.9;
+}
+
+.footer .lang-select {
+  margin-top: 2rem;
+  color: #999;
+  background-color: #474343;
+  background-image: none;
+  border: 1px solid #333;
+  padding: 1rem 1.2rem;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  background: #e50914;
+  color: #fff;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn-rounded {
+  border-radius: 5px;
+  padding: 7px 17px;
+  font-size: 1rem;
+}
+
+.btn-icon {
+  margin-left: 1rem;
+}
+.center {
+  text-align: center;
+}
+@media (max-width: 1122px) {
+  .showcase-content {
+    padding: 0;
+  }
+  .collapes {
+    padding: 50px 15%;
+  }
+  .popup {
+    top: 55%;
+  }
+  .popcontentbx {
+    width: 650px;
+    height: 400px;
+  }
+  .popcontentbx .popcontent {
+    top: 10%;
+  }
+}
+@media (max-width: 960px) {
+  .showcase-top img {
+    top: 30%;
+    left: 5%;
+    transform: translate(0);
+  }
+
+  .showcase-content h1 {
+    font-size: 3.7rem;
+    line-height: 1;
+  }
+
+  .showcase-content p {
+    font-size: 1.5rem;
+  }
+
+  .footer .footer-cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

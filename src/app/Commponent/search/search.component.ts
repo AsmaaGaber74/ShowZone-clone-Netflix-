@@ -6,10 +6,12 @@ import { RouterModule } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { BackgroundService } from '../../../Service/background.service';
 import { Subscription } from 'rxjs';
+import { FooterComponent } from '../footer/footer.component';
+
 @Component({
     selector: 'app-search',
     standalone: true,
-    imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent],
+    imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent,FooterComponent],
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.css']
 })
@@ -18,6 +20,7 @@ export class SearchComponent implements OnInit ,OnDestroy
     searchQuery: string = "";
     resultdata: any[] = [];
     pagedResultdata: any[] = [];
+    trinding:any[]=[];
     currentPage: number = 1;
     itemsPerPage: number = 8;
     backgroundColor: string = 'white';
@@ -37,6 +40,7 @@ export class SearchComponent implements OnInit ,OnDestroy
           this.backgroundColor = color;
           console.log('Background color:', this.backgroundColor);  
         });
+        this.Trindingmovies() ;
       }
     
       ngOnDestroy(): void {
@@ -101,7 +105,19 @@ export class SearchComponent implements OnInit ,OnDestroy
         return Array.from({ length: this.totalPages }, (_, index) => index + 1);
     }
    
-  
+    //------treinding
+    Trindingmovies() 
+    {
+     this._moviesService.trendingMovieApiData().subscribe({
+         next: (trand) => {
+             console.log("traindiiiing", trand);
+             this.trinding = trand.results.sort((a: any, b: any) => b.vote_average - a.vote_average).slice(0, 5);
+         },
+         error: (error) => {
+             console.error(error);
+         }
+     });
+   }
 }
 
 

@@ -1,3 +1,61 @@
+.navbar 
+{
+    background-color: rgb(20, 20, 20);
+     margin-bottom:20px ;
+     display: block;
+}
+.navbar .navbar-brand
+{
+    color:#E50914;
+    font-size: bold;
+}
+
+.navbar .nav-item .nav-link
+{
+    color:#ffffff;
+    font-size:medium;
+}
+.navbar .nav-item .nav-link:hover
+{
+    color:#E50914;
+    font-size: 18px;
+  
+}
+
+.pic img
+{
+    width: 30px;
+    height:30px;
+    border-radius: 50%;
+}
+.dropdown-item {
+    max-width: 200px; /* Set the desired max-width */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  /* custom dropdown */
+/* .custom-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 10rem;
+    padding: 0.5rem 0;
+    margin: 0;
+    font-size: 1rem;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.175);
+  }
+  
+  .custom-dropdown-menu.show {
+    display: block;
+  } */
+  
+/* navbarend */
 .up {
     padding: 10px;
     margin: 10px;
@@ -23,21 +81,21 @@
 .parent img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the entire area */
-    display: block; /* Remove any inline spacing */
+    object-fit: cover;
+    display: block; 
 }
 
 .child {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the child div */
+    transform: translate(-50%, -50%);
     z-index: 10;
     background: rgba(34, 34, 35, 0.9);
     color: white;
     border-radius: 8px;
     width: 100%;
-    max-width: 400px; /* Adjust the max-width as needed */
+    max-width: 400px; 
     padding: 20px;
 }
 
@@ -46,7 +104,46 @@
     color: white;
     background: rgba(34, 34, 35, 0.9);
 }
+.registerbtn
+{
+    margin: 10px;
+}
 
+.registerbtn {
+  /* background-color: #1e8ce7;
+  border: 1px solid #0f70be; */
+  background-color: brown;
+  border: 1px solid brown;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+}
+
+.registerbtn:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+@media (min-width: 768px) {
+  .button-37 {
+    padding: 10px 30px;
+  }
+}
 /* Media queries for small screens */
 @media (max-width: 600px) {
     .child {
