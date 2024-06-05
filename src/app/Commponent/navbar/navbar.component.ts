@@ -44,6 +44,7 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { LogoutService } from '../../../Service/logout.service';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { FavoriteService } from '../../../Service/favorite.service';
 @Component({
   selector: 'app-navbar',
   standalone: true,
@@ -53,6 +54,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent implements OnInit {
   lang = '';
+  favcount:number=0;
   selectedLanguage: string = 'en';
   isDropdownOpen = false;
   name = JSON.parse(sessionStorage.getItem("loginuser")!).name;
@@ -62,7 +64,8 @@ export class NavbarComponent implements OnInit {
     public backgroundService: BackgroundService,
     private signoutService: LogoutService,
     private router: Router,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private favoriteService: FavoriteService,
    
   ) {}
 
@@ -70,7 +73,7 @@ export class NavbarComponent implements OnInit {
     
     this.backgroundService.initializeBackground();
     this.loadUserInfo();
- 
+   this. getfavcount();
     const storedLang = localStorage.getItem('lang');
     if (storedLang) 
     {
@@ -119,5 +122,12 @@ export class NavbarComponent implements OnInit {
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
- 
+  getfavcount()
+  {
+     this.favcount= this.favoriteService.getFavoritescount();
+     console.log("fafcount",this.favoriteService.getFavoritescount());
+  }
+
+  
+  
 }

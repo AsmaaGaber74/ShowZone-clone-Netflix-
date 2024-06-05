@@ -54,7 +54,13 @@ export class FavoriteService {
     return this.loadFavorites();
   }
 
-  isFavorite(movieId: number): boolean {
+  isFavorite(movieId: number): boolean
+   {
     return this.loadFavorites().some((movie: any) => movie.id === movieId);
+   }
+
+  getFavoritescount(): number
+   {
+    return this.getFavorites().length;
   }
 }

@@ -1,64 +1,4 @@
 
-// import { Component, OnInit, NgZone } from '@angular/core';
-// import { CommonModule } from '@angular/common';
-// import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-// import { BackgroundService } from '../../../Service/background.service';
-// import { AuthService } from '../../../Service/auth.service';
-// declare var google: any;
-
-// @Component({
-//   selector: 'app-login',
-//   standalone: true,
-//   imports: [CommonModule, RouterModule],
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent implements OnInit {
-//   constructor(
-//     private backgroundService: BackgroundService,
-//     private router: Router,
-//     private ngZone: NgZone,
-//     private  authService: ActivatedRoute
-//   ) {}
-//   credentials = {
-//     email: '',
-//     password: ''
-//   };
-//   ngOnInit(): void
-//    {
-//       google.accounts.id.initialize
-//       ({
-//         client_id: '888422676843-p3rfqqrjmgcp5710ecumgdeprjn7emqn.apps.googleusercontent.com',
-//         callback: (resp: any) => this.handleLogin(resp),
-//       });
-
-//       google.accounts.id.renderButton(document.getElementById("google-btn"), 
-//       {
-//         theme: 'filled_blue',
-//         size: 'large',
-//         shape: 'rectangle',
-//         width: 350
-//       });
-//   }
-
-//   private decodeToken(token: string) {
-//     return JSON.parse(atob(token.split(".")[1]));
-//   }
-
-//   handleLogin(response: any) {
-//     if (response) {
-//       const payload = this.decodeToken(response.credential);
-//       sessionStorage.setItem("loginuser", JSON.stringify(payload));
-//       this.ngZone.run(() => {
-//         this.router.navigate(['/']);
-//       });
-//     }
-//   }
-
-
-// }
-
-
 import { Component, OnInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -87,13 +27,23 @@ export class LoginComponent implements OnInit {
   };
   signupusers: any[] = [];
   isDropdownOpen = false;
+  currentLang: string;
   constructor(
     private backgroundService: BackgroundService,
     private router: Router,
     private ngZone: NgZone,
     private authService: ActivatedRoute,
     private translate: TranslateService
-  ) {}
+  ) 
+  {
+   
+    this.translate.addLangs(['en', 'ar']);
+    this.translate.setDefaultLang('en');
+
+    const browserLang = this.translate.getBrowserLang() || 'en';
+    this.currentLang = browserLang.match(/en|ar/) ? browserLang : 'en';
+    this.translate.use(this.currentLang);
+  }
 
   credentials = {
     email: '',
@@ -141,7 +91,7 @@ export class LoginComponent implements OnInit {
     if (isUserExist !== undefined) {
       sessionStorage.setItem("loginuser", JSON.stringify({ 
         name: isUserExist.username, 
-        picture: 'data:image/png;base64,...', 
+        picture: 'https://static-00.iconduck.com/assets.00/user-icon-2048x2048-ihoxz4vq.png', 
         loginType: 'username' 
       }));
       this.errorMessage = ''; 
@@ -169,7 +119,8 @@ export class LoginComponent implements OnInit {
   
     localStorage.setItem('lang', lang);
     this.translate.use(lang);
-    console.log("lang",lang)
+    console.log("lang",lang);
+    this.currentLang = lang;
   }
   
   selectlanguages(event: any) {

@@ -21,7 +21,10 @@
     font-size: 18px;
   
 }
-
+.align-left {
+    margin-right: auto !important;
+  }
+  
 .pic img
 {
     width: 30px;

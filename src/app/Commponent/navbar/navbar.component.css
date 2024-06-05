@@ -21,7 +21,15 @@
     font-size: 18px;
   
 }
-
+.navbar .nav-item .supfav
+{
+    color:#E50914;
+    font-size: 14px;
+}
+.navbar .nav-item .supfav:hover
+{
+    color:#ffffff;
+}
 .pic img
 {
     width: 30px;
