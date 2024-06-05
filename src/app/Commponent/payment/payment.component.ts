@@ -6,10 +6,13 @@ import { RouterModule } from '@angular/router';
 import { render } from 'creditcardpayments/creditCardPayments';
 import { BackgroundService } from '../../../Service/background.service';
 import { Subscription } from 'rxjs';
+import { NavbarloginComponent } from '../navbarlogin/navbarlogin.component';
+import { FooterComponent } from '../footer/footer.component';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule],
+  imports: [CommonModule, FormsModule, RouterModule,NavbarloginComponent,FooterComponent,TranslateModule],
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.css']
 })
@@ -23,7 +26,7 @@ export class PaymentComponent implements OnInit {
     render({
       id: "#paypalbutton",
       currency: 'USD',
-      value: "2.00",
+      value: "10.00",
       onApprove: (details: any) => 
         {
         this.paymentSucceeded = true;

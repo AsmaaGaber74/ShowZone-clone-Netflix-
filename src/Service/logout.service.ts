@@ -16,7 +16,7 @@ export class LogoutService {
          
       this.favoriteService.clearFavorites;
       google.accounts.id.disableAutoSelect();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
       
     }
 }

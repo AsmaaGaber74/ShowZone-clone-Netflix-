@@ -1,7 +1,15 @@
 
-<nav class="navbar navbar-expand-lg navbar-light fixed-top"  [dir]="'dir' | translate">  <!-- bg-dark -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top"  >  <!-- bg-dark -->
     <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/"> ShowZone{{'header.home'|translate}}</a>
+      <a class="navbar-brand" routerLink="/home"> ShowZone</a>
+      <ul class="navbar-nav ms-auto"   >
+        <li class="nav-item" >
+          <a class="nav-link"  style="cursor: pointer;"  >Welcom: <span class="name" >{{name}}</span> </a> 
+        </li> 
+        <li class="pic">
+          <img [src]="pic">
+        </li>
+     </ul>
       <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" >
         <span class="navbar-toggler-icon"  style="color: white;"></span>
       </button>
@@ -12,23 +20,29 @@
                     <i class="fa" [ngClass]="backgroundService.getDarkMode() ? 'fa-moon' : 'fa-sun'"></i>
                   </button>
               </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
-          </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home">Home</a>
+          </li> -->
+          <!-- <li class="nav-item">
             <a class="nav-link"  routerLink="/search">Search</a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link"  routerLink="/fav">fav<sup class="supfav">{{favcount}}</sup></a>
+            <a class="nav-link" routerLink="/search" style="font-size: 20px;">
+                <i class="fas fa-search"></i> 
+            </a>
+        </li>
+        
+          <li class="nav-item">
+            <a class="nav-link"  routerLink="/fav" style="font-size: 20px;">fav<sup class="supfav">{{favcount}}</sup></a>
           </li>
-          <li class="nav-item" >
+          <!-- <li class="nav-item" >
             <a class="nav-link"  style="cursor: pointer;"  >Welcom: <span style="color: red;">{{name}}</span> </a> 
           </li> 
           <li class="pic">
             <img [src]="pic">
-          </li>
+          </li> -->
 
-          <li class="nav-item dropdown" style="background-color: aliceblue;" (click)="toggleDropdown()">
+          <!-- <li class="nav-item dropdown" style="background-color: aliceblue;" (click)="toggleDropdown()">
             <div class="Flagdiv">
               <a class="nav-link dropdown-toggle" id="languageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
                 Language
@@ -38,7 +52,7 @@
                 <a class="dropdown-item" (click)="changelanguage('ar')">Arabic</a>
               </div>
             </div>
-          </li>
+          </li> -->
 
           <li class="nav-item">
             <a class="nav-link"  style="cursor: pointer;"  (click)="signoutt()"> | LogOut</a> 

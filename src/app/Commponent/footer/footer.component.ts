@@ -6,11 +6,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MoviesService } from '../../../Service/movies.service';
 import { BackgroundService } from '../../../Service/background.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent],
+  imports: [CommonModule, FormsModule, RouterModule,ReactiveFormsModule,NavbarComponent,TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

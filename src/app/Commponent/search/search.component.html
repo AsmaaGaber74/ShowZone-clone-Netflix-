@@ -1,7 +1,7 @@
 
     <app-navbar></app-navbar>
 <!--search-->
-    <div class="containertop">
+    <div class="containertop" id="containertop">
         
         <h2>Find Movies TV Show and More</h2>
         <h3 
@@ -37,7 +37,7 @@
                         <div id="CarouselTest" class="carousel slide" data-ride="carousel">                       
                           <div class="carousel-inner">
                               <div class="carousel-item active">
-                                <img routerLink="/details/{{ movie.id }}" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
+                                <img routerLink="/home/details/{{ movie.id }}" [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="{{ movie.title }}">
               
                               </div>                            
                           </div>
@@ -53,7 +53,7 @@
           <div class="row">
             <div class="col-md-3 col-sm-6 mb-10 " *ngFor="let movie of pagedResultdata">
                 <div class="card card-block">                  
-                    <img routerLink="/details/{{ movie.id }}" src=".." [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Photo of sunset">
+                    <img routerLink="/home/details/{{ movie.id }}" src=".." [src]="'https://image.tmdb.org/t/p/w500/' + movie.poster_path" alt="Photo of sunset">
                     <h4 class="card-title text-right"><i class="material-icons" >{{ movie.title }}</i></h4> 
                     <h5 class="card-title mt-3 mb-3" style="color: white;" [class.expanded]="movie.isExpanded" (click)="toggleExpand(movie)">{{ movie.overview }}</h5>
                     <p class="card-text">Rating: {{movie.vote_average}} </p> 
@@ -68,5 +68,10 @@
             <button class="switch"  [class.active]="page === currentPage" (click)="goToPage(page)">{{ page }}</button>
         </ng-container>
     <button class="switch"  *ngIf="currentPage < totalPages "  (click)="nextPage()">Next</button>
+  </div>
+  <div class="uparrow">
+    <a href="#containertop">
+      <i class="fas fa-arrow-up"></i>
+    </a>
   </div>
   <app-footer></app-footer>

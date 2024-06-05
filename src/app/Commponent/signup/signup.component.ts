@@ -24,11 +24,13 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../../Service/auth.service';
+import { NavbarloginComponent } from '../navbarlogin/navbarlogin.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,NavbarloginComponent,FooterComponent,],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
@@ -90,7 +92,7 @@ export class SignupComponent implements OnInit {
       this.signupusers.push(this.signupForm.value);
       localStorage.setItem('signupusers', JSON.stringify(this.signupusers));
       this.signupForm.reset();
-      this.router.navigate(['/login']);
+      this.router.navigate(['/']);
     }
     //this.signupForm.reset();
   }

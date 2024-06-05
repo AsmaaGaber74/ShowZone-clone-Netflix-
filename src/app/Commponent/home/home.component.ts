@@ -24,11 +24,11 @@ export class HomeComponent implements OnInit
   animations:any[]=[];
   adventures:any[]=[];
   comedy:any[]=[];
+  Documentary:any[]=[];
   backgroundColor: string = 'white';
   backgroundColorSubscription: Subscription | undefined;
   isExpanded: boolean = false;
   movies: any[] = [];
-
 toggleExpand(movie: any)
 {
   movie.isExpanded = !movie.isExpanded;
@@ -53,6 +53,7 @@ toggleExpand(movie: any)
       this.animationsmovies();
       this.advanturesmovies();
       this.comidysmovies();
+      this.Documentarynmovies();
   }
 //--------slider
  slidarshow()
@@ -116,6 +117,7 @@ advanturesmovies()
 
     })
 }
+//comidy
 comidysmovies()
 {
   this._moviesService.fetchComedyMovies().subscribe({
@@ -123,6 +125,18 @@ comidysmovies()
      {
        console.log("animation",com);
        this.comedy=com.results;
+     }
+
+    })
+}
+// science-fiction
+Documentarynmovies()
+{
+  this._moviesService.fetchDocumentaryMovies().subscribe({
+    next:(doc)=>
+     {
+       console.log("sience",doc);
+       this.Documentary=doc.results;
      }
 
     })

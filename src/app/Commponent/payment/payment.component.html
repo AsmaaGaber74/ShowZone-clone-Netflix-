@@ -1,23 +1,24 @@
-
+<app-navbarlogin></app-navbarlogin>
 <div class="container">
     <!-- pay pal and strip buttons -->
     <div class="towway" *ngIf="!paymentSucceeded">
-       <h3   >Please make payment so you can register</h3>
-       <h4  > pay on payPal</h4>
+       <h3  style="font-family: Neucha, sans-serif;" >Please make payment so you can register</h3>
        <div  id="paypalbutton" class="pay"></div>
       
     </div>
     
     <!-- correct paied -->
     <div *ngIf="paymentSucceeded">
-       <h1  [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}" >
-        you payment sucssed
+       <h1 style="font-family: Neucha, sans-serif;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}" >
+        {{ 'pay.pay succeed' | translate }}
        </h1>  
         <img  src="data:image/jpeg;base64,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">
 
-        <button class="button-44" role="button" routerLink="/singup">Continue</button>
+        <button class="button-44" role="button" routerLink="/singup">  {{ 'pay.continue' | translate }}</button>
 
 
     </div>
-   
+    
 </div>
+
+<app-footer></app-footer>

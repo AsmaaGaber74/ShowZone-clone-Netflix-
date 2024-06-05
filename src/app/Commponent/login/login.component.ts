@@ -7,13 +7,14 @@ import { AuthService } from '../../../Service/auth.service';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NavbarComponent } from '../navbar/navbar.component';
+import { NavbarloginComponent } from '../navbarlogin/navbarlogin.component';
 
 declare var google: any;
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, TranslateModule,NavbarComponent],
+  imports: [CommonModule, RouterModule, FormsModule, TranslateModule,NavbarloginComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -95,7 +96,7 @@ export class LoginComponent implements OnInit {
         loginType: 'username' 
       }));
       this.errorMessage = ''; 
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     } else {
       this.errorMessage = 'Username or password is incorrect';
     }
@@ -110,7 +111,7 @@ export class LoginComponent implements OnInit {
         loginType: 'google' 
       }));
       this.ngZone.run(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       });
     }
   }

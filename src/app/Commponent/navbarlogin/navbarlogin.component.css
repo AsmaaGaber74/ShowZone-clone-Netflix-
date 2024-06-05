@@ -1,6 +1,6 @@
 .navbar 
 {
-    background-color: black;
+    background-color: rgb(20, 20, 20);
      margin-bottom:20px ;
      display: block;
 }
@@ -21,27 +21,19 @@
     font-size: 18px;
   
 }
-.navbar .nav-item .supfav
-{
-    color:#E50914;
-    font-size: 14px;
-}
-.navbar .nav-item .supfav:hover
-{
-    color:#ffffff;
-}
-.navbar .nav-item > span.name {
-    color: #e30d0d;
-}
-.navbar .nav-item > span.name:hover {
-    color: #ffffff;
-}
-
+.align-left {
+    margin-right: 82% !important;
+  }
+  
 .pic img
 {
     width: 30px;
     height:30px;
     border-radius: 50%;
-    margin-top: 5px;
-    margin-right: 5px;
 }
+.dropdown-item {
+    max-width: 200px; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }

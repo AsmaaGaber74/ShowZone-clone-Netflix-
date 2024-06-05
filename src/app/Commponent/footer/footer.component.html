@@ -32,7 +32,42 @@
     <p class="center"  [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}" >© 2024 ShowZone. All images right reserved</p>
   </footer> -->
 
+<!-- localization -->
+<hr [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
+<footer class="footer" [dir]="('direction.dir' | translate)">
+  <p>{{ 'footer.Questions' | translate }}</p>
+  <div class="footer-cols">
+    <ul>
+      <li><a href="#">{{ 'footer.FAQ' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.InvestorRelations' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.WaysToWatch' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.CorporateInformation' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.NetflixOriginals' | translate }}</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">{{ 'footer.HelpCenter' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.Jobs' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.TermsOfUse' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.ContactUs' | translate }}</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">{{ 'footer.Account' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.RedeemGiftCards' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.Privacy' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.SpeedTest' | translate }}</a></li>
+    </ul>
+    <ul>
+      <li><a href="#">{{ 'footer.MediaCenter' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.BuyGiftCards' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.CookiePreferences' | translate }}</a></li>
+      <li><a href="#">{{ 'footer.LegalNotices' | translate }}</a></li>
+    </ul>
+  </div>
+  <p class="center">{{ 'footer.AllRightsReserved1' | translate }}</p>
+  <p class="center">{{ 'footer.AllRightsReserved2' | translate }}</p>
+</footer>
 
+  
   <!-- <footer class="footer">
     <p>Questions? Call 1-844-505-2993</p>
     <div class="footer-cols">

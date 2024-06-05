@@ -8,18 +8,20 @@ import { LoginComponent } from './Commponent/login/login.component';
 import { SignupComponent } from './Commponent/signup/signup.component';
 import { FavoriteComponent } from './Commponent/favoritmovie/favoritmovie.component';
 import { PaymentComponent } from './Commponent/payment/payment.component';
+import { FooterComponent } from './Commponent/footer/footer.component';
 
 export const routes: Routes = [
-    {
-        path: '', 
+    { path: '', component: LoginComponent },
+    {  path: 'home', 
         component: HomeComponent,
         children: [
             { path: 'navbar', component: NavbarComponent },
         ],
     },
-    { path: 'details/:id', component: MovidetailsComponent },
+    { path: 'home/details/:id', component: MovidetailsComponent },
     { path: 'search', component: SearchComponent },
-    { path: 'login', component: LoginComponent },
+    { path: 'footer', component: FooterComponent },
+    { path: 'footer', component: FooterComponent },
     { path: 'singup', component: SignupComponent },
     { path: 'fav', component: FavoriteComponent },
     { path: 'payment', component: PaymentComponent },

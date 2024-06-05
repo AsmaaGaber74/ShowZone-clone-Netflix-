@@ -2,13 +2,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@400..700&display=swap" rel="stylesheet">
- 
+    
+<app-navbar></app-navbar >
 
-<app-navbar></app-navbar>
 <!---slider-->
-  <div class="container-fluid">
+  <div class="container-fluid" id="slider-top">
 
-      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" >
           
           <div class="carousel-inner">
               <div class="carousel-item " data-bs-interval="10000" *ngFor="let slid of sliders;let i=index"
@@ -30,8 +30,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-
-      
+        
   </div>
 <!--end-slider-->
 
@@ -167,8 +166,40 @@
   </div>
 </div>
 
+<!-- Documentary -->
+<div class="row pp">
+  <h4 style="margin-bottom: 8px;margin-top: 10px;" [ngStyle]="{'color': backgroundColor === 'black' ? 'white' : 'black'}">
 
+    Documentary Movies
+  </h4>
+
+  <div class="imagecontainer">
+    <ng-container *ngFor="let doc of Documentary; let i = index">
+      <div class="image-wrapper">
+        <img src="https://image.tmdb.org/t/p/original/{{ doc.poster_path }}" 
+             class="allimage allimage2" alt="...">
+        <div class="social">
+          <button  routerLink="{{'/home/' +'details/' + doc.id }}">details</button>
+           <button (click)="Favorite(doc)">
+              <span *ngIf="isFavorite(doc.id)">
+                <a class="nav-link active" aria-current="page" >❤</a>
+              </span>
+              <span *ngIf="!isFavorite(doc.id)">🤍</span>
+        </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>
-<hr style="color: rgb(232, 8, 8);">
+</div>
+
   <!--end data for all category--->
+
+  
+  <div class="uparrow">
+    <a href="#slider-top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
   <app-footer></app-footer>

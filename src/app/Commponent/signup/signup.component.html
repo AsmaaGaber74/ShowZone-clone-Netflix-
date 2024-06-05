@@ -1,140 +1,5 @@
-<!-- 
 
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-     
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Create Account</h3>
-        </div>
-        <div class="card-body">
-          <form (ngSubmit)="register()">
-            <div class="form-group">
-              <label for="username">Username:</label>
-              <input type="text" class="form-control" id="username" [(ngModel)]="username" name="username" required>
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" id="password" [(ngModel)]="password" name="password" required>
-            </div>
-            <div class="form-group">
-              <label for="confirmPassword">Confirm Password:</label>
-              <input type="password" class="form-control" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" [(ngModel)]="email" name="email" required>
-            </div>
-            <div *ngIf="errorMessage" class="alert alert-danger" [innerHTML]="errorMessage"></div>
-            <button type="submit" class="btn btn-success btn-block registerbtn">Register</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-k
-<!-- <div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6 up">
-      <div class="card">
-        <div class="card-header">
-          <h3 class="text-center">Create Account</h3>
-        </div>
-        <div class="card-body">
-          <form [formGroup]="signupForm" (ngSubmit)="signup()" class="login-form">
-            <div class="form-group">
-              <label class="label" for="username">Username:</label>
-              <input type="text" class="form-control" id="username" formControlName="username" required>
-              <div *ngIf="signupForm.get('username')!.touched && signupForm.get('username')!.invalid" class="text-danger">
-                <div *ngIf="signupForm.get('username')!.errors?.['required']">Username is required.</div>
-                <div *ngIf="signupForm.get('username')!.errors?.['minlength']">Username must be at least 8 characters long.</div>
-                <div *ngIf="signupForm.get('username')!.errors?.['pattern']">Username must contain only letters.</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input type="password" class="form-control" id="password" formControlName="password" required>
-              <div *ngIf="signupForm.get('password')!.touched && signupForm.get('password')!.invalid" class="text-danger">
-                <div *ngIf="signupForm.get('password')!.errors?.['required']">Password is required.</div>
-                <div *ngIf="signupForm.get('password')!.errors?.['strongPassword']">Password must be strong (include uppercase, lowercase, number, and special character).</div>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" class="form-control" id="email" formControlName="email" required>
-              <div *ngIf="signupForm.get('email')!.touched && signupForm.get('email')!.invalid" class="text-danger">
-                <div *ngIf="signupForm.get('email')!.errors?.['required']">Email is required.</div>
-                <div *ngIf="signupForm.get('email')!.errors?.['email']">Email must be in the form example .com.</div>
-                <div *ngIf="signupForm.get('email')!.errors?.['emailTaken']">This email is already registered.</div>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-success btn-block registerbtn" [disabled]="signupForm.invalid">Signup</button>
-          
-          </form>
-        </div>
-      </div>
-    </div>
-  </div> 
-</div>-->
-
-
-<!-- new -->
-<!-- <div class="login-wrap" (ngSubmit)="signup()">
-	<div class="login-html" (ngSubmit)="signup()">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign Up</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-		<div class="login-form">
-			<div class="sign-in-htm" (ngSubmit)="signup()">
-
-        <div class="group">
-            <label for="username" class="label">Username:</label>
-            <input type="text" class="input" id="username" formControlName="username" required>
-            <div *ngIf="signupForm.get('username')!.touched && signupForm.get('username')!.invalid" class="text-danger">
-              <div *ngIf="signupForm.get('username')!.errors?.['required']">Username is required.</div>
-              <div *ngIf="signupForm.get('username')!.errors?.['minlength']">Username must be at least 8 characters long.</div>
-              <div *ngIf="signupForm.get('username')!.errors?.['pattern']">Username must contain only letters.</div>
-            </div>
-          </div>   
-
-
-          <div class="group">
-            <label for="password"  class="label">Password:</label>
-            <input type="password" class="input" id="password" formControlName="password" required>
-            <div *ngIf="signupForm.get('password')!.touched && signupForm.get('password')!.invalid" class="text-danger">
-              <div *ngIf="signupForm.get('password')!.errors?.['required']">Password is required.</div>
-              <div *ngIf="signupForm.get('password')!.errors?.['strongPassword']">Password must be strong (include uppercase, lowercase, number, and special character).</div>
-            </div>
-           </div>
-
-				
-
-
-				<div class="group">
-          <label for="email"  class="label">Email:</label>
-          <input type="email"  class="input" id="email" formControlName="email" required>
-          <div *ngIf="signupForm.get('email')!.touched && signupForm.get('email')!.invalid" class="text-danger">
-            <div *ngIf="signupForm.get('email')!.errors?.['required']">Email is required.</div>
-            <div *ngIf="signupForm.get('email')!.errors?.['email']">Email must be in the form example .com.</div>
-            <div *ngIf="signupForm.get('email')!.errors?.['emailTaken']">This email is already registered.</div>
-          </div>
-				</div>
-
-
-
-				
-					<button type="submit" class="btn btn-success btn-block registerbtn" [disabled]="signupForm.invalid">Signup</button>
-          
-				
-				
-			</div>
-		</div>
-	</div>
-</div>  -->
-
-<!-- new2 -->
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -146,7 +11,7 @@ k
 
   </head>
   <body class="align">
-
+    <app-navbarlogin></app-navbarlogin>
     <div class="grid align__item">
 
       <div class="register">
@@ -184,14 +49,16 @@ k
           </div>
 
           <div class="form__field3">
-            <input type="submit" value="Sign Up">           
+            <input type="submit" value="Sign Up"  routerLink="/">   
+                    
           </div>
-          <p>Already have an accout? <a href="/login">Log in</a></p>
+          <p>Already have an accout? <a href="/">Log in</a></p>
         </form>
 
       </div>
 
     </div>
-
+   
   </body>
   </html>
+ <app-footer></app-footer>
